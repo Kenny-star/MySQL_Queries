@@ -1,0 +1,16 @@
+CREATE TABLE `authors` (
+  `author_name` varchar(45) NOT NULL,
+  `age` int NOT NULL,
+  `nationality` varchar(45) NOT NULL,
+  PRIMARY KEY (`author_name`)
+) 
+
+===================================
+CREATE TABLE `books` (
+  `isbn` int NOT NULL,
+  `title` varchar(45) NOT NULL,
+  `author_name` varchar(45) NOT NULL,
+  PRIMARY KEY (`isbn`),
+  KEY `author_name` (`author_name`),
+  CONSTRAINT `books_ibfk_1` FOREIGN KEY (`author_name`) REFERENCES `authors` (`author_name`)
+) 
